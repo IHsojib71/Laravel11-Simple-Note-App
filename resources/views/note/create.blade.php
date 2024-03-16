@@ -1,21 +1,32 @@
 <x-layout>
     <div class="py-4">
         <div class="max-w-2xl mx-auto">
-            <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
+            <div class="text-center mt-8">
+                <span class="font-bold">Create New Note</span>
 
-            <input type="text" name="price" id="price"
-                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Title">
-
-            <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Note</label>
-            <textarea id="message" rows="4"
-                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Write your note...."></textarea>
-
-            <div class="mt-4 text-right">
-                <a href="{{ route('note.index') }}" class="bg-red-500 px-8 py-2 rounded-lg text-white mr-2">Cancel</a>
-                <button type="submit" class="bg-green-500 px-8 py-2 rounded-lg text-white">Save</button>
             </div>
+            <form action="{{ route('note.store') }}" method="POST">
+                @csrf
+                <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
+
+                <input type="text" name="title"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Title">
+                <br>
+
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Note</label>
+                <textarea " rows="6" name="note"
+                                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                                     placeholder="Write your note...."></textarea>
+
+                <div class="mt-4 text-right">
+                    <a href="{{ route('note.index') }}"
+                        class="inline-block bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Cancel</a>
+                    <button type="submit"
+                        class="inline-block bg-green-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Save</button>
+                </div>
+            </form>
+
         </div>
 
 

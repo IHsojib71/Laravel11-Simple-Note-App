@@ -17,11 +17,12 @@
                         </p>
                     </div>
                     <div class="px-6 pt-4 pb-2">
+                        <a href="{{ route('note.show', $note->id) }}"
+                            class="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Show</a>
+                        <a href="{{ route('note.edit', $note->id) }}"
+                            class="inline-block bg-green-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Edit</a>
                         <span
-                            class="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">View</span>
-                        <span
-                            class="inline-block bg-green-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Edit</span>
-                        <span
+                            href="{{ route('note.destroy', $note->id) }}"
                             class="inline-block bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Delete</span>
                     </div>
                 </div>

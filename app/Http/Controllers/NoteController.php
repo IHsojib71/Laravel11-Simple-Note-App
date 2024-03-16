@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoteRequest;
 use App\Models\Note;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class NoteController extends Controller
 {
     public function index()
     {
-        $notes = Note::query()->orderBy('created_at', 'desc')->paginate();
+        $notes = Note::query()->where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->paginate();
         return view('note.index', compact('notes'));
     }
 
@@ -17,9 +18,12 @@ class NoteController extends Controller
     {
         return view('note.create');
     }
-    public function store()
+    public function store(NoteRequest $request)
     {
-        return 'store';
+        $valid = $request->validated();
+        $valid['user_id'] = auth()->user()->id;
+        Note::create($valid);
+        return to_route('note.index')->with('success', 'New note saved successfully!');
     }
     public function show(Note $note)
     {

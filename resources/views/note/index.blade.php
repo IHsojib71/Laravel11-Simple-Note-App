@@ -7,7 +7,7 @@
             <a href="{{ route('note.create') }}"
                 class="inline-block bg-black rounded-full px-6 py-1  text-sm font-semibold text-white  my-4">Create</a>
         </div>
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
             @forelse ($notes as $note)
                 <div class="rounded-lg overflow-hidden shadow-lg bg-yellow-500 m-5">
                     <div class="px-6 py-4">

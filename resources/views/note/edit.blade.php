@@ -1,7 +1,7 @@
 <x-layout>
     <x-layout>
         <div class="py-4">
-            <div class="max-w-2xl mx-auto">
+            <div class="max-w-2xl mx-auto p-2">
                 <div class="text-center mt-8">
                     <span class="font-bold">Create New Note</span>
 

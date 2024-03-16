@@ -24,7 +24,7 @@
         @endsession
     </div>
 
-    <div class="m-12 rounded-lg bg-gradient-to-r from-indigo-200 via-purple-300 to-pink-200">
+    <div class="lg:m-12 md:m-10 sm:m-4 rounded-lg bg-gradient-to-r from-indigo-200 via-purple-300 to-pink-200">
         {{ $slot }}
     </div>
 

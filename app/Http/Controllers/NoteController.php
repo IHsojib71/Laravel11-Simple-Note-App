@@ -22,8 +22,11 @@ class NoteController extends Controller
     {
         $valid = $request->validated();
         $valid['user_id'] = auth()->user()->id;
-        Note::create($valid);
+
+        if(Note::create($valid))
         return to_route('note.index')->with('success', 'New note saved successfully!');
+        else
+        return back()->with('error','Something went wrong');
     }
     public function show(Note $note)
     {
@@ -34,9 +37,14 @@ class NoteController extends Controller
         return view('note.edit', compact('note'));
     }
 
-    public function update()
+    public function update(NoteRequest $request, Note $note)
     {
-        return 'update';
+        $valid = $request->validated();
+        $valid['user_id'] = auth()->user()->id;
+        if($note->update($valid))
+        return to_route('note.index')->with('success', 'Updated note successfully!');
+        else
+        return back()->with('error','Something went wrong');
     }
 
 

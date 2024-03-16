@@ -1,3 +1,3 @@
 <x-layout>
-    <h1 class="bg-green-100">Index</h1>
+    <h1 class="bg-green-600">Index</h1>
 </x-layout>

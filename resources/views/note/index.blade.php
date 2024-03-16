@@ -21,9 +21,12 @@
                             class="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Show</a>
                         <a href="{{ route('note.edit', $note->id) }}"
                             class="inline-block bg-green-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Edit</a>
-                        <span
-                            href="{{ route('note.destroy', $note->id) }}"
-                            class="inline-block bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Delete</span>
+                        <form action="{{ route('note.destroy', $note->id) }}" method="POST" class="inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                class="bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Delete</button>
+                        </form>
                     </div>
                 </div>
             @empty
@@ -32,7 +35,7 @@
 
 
         </div>
-        <div class="p-4">
+        <div class="p-4 flex justify-center">
             {{ $notes->links() }}
         </div>
     </div>

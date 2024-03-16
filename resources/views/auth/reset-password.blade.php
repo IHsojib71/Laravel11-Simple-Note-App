@@ -1,5 +1,6 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
+<x-layout>
+     <div class="max-w-4xl mx-auto p-6">
+<form method="POST" action="{{ route('password.store') }}">
         @csrf
 
         <!-- Password Reset Token -->
@@ -36,4 +37,7 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+
+     </div>
+
+</x-layout>

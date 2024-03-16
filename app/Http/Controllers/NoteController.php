@@ -30,6 +30,9 @@ class NoteController extends Controller
     }
     public function show(Note $note)
     {
+        if ($note->user_id != auth()->user()->id)
+            return back()->with('error', 'You are not permitted to show this note!');
+        
         return view('note.show', compact('note'));
     }
     public function edit(Note $note)
@@ -50,6 +53,9 @@ class NoteController extends Controller
 
     public function destroy(Note $note)
     {
-        return 'destroy';
+        if ($note->delete())
+        return to_route('note.index')->with('success', 'Deleted note successfully!');
+        else
+        return back()->with('error', 'Something went wrong');
     }
 }
